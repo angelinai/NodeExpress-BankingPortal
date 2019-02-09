@@ -15,6 +15,6 @@ app.set('view engine', 'ejs'); // set view engine
 // point at the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => res.render('index', { title: 'Index'}));
+app.get('/', (req, res) => res.render('index', { title: 'Index Page'}));
 
 app.listen(3000, () => console.log('Project running on port 3000!'))
