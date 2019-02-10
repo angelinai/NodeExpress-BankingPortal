@@ -71,18 +71,18 @@ const users = JSON.parse(userData);
        accounts[req.body.to].balance = parseInt(accounts[req.body.to].balance) + 
         parseInt(req.body.amount, 10);
          
-        const accountsJson = JSON.stringify(accounts, null, 4);
+        const accountsJSON = JSON.stringify(accounts, null, 4);
         // write to file
-        fs.writeFileSync(path.join(__dirname, 'json/accounts.json'), accountsJson, 'utf8');
+        fs.writeFileSync(path.join(__dirname, 'json/accounts.json'), accountsJSON, 'utf8');
       res.render('transfer', {message: "Transfer Completed"});
     });
     app.post('/payment', (req, res) =>  {
         accounts.credit.balance -= req.body.amount;
         accounts.credit.available += parseInt(req.body.account, 10);
-        const accountsJson = JSON.stringify(accounts, null, 4);
+        const accountsJSON = JSON.stringify(accounts, null, 4);
 
          // write to file
-         fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'), accountsJson, 'utf8');
+         fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'), accountsJSON, 'utf8');
          res.render('payment', {message: 'Payment Sucessful', account: accounts.credit });
     });
 
