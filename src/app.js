@@ -1,5 +1,8 @@
 // require ExpressJS
 const express = require('express');
+const fs = require('fs'); // allow read and write files
+const path = require('path'); // configure abs paths
+ 
 
 // data rquire setup exports
 const { accounts, users, writeJson } = require('./data');
@@ -75,6 +78,7 @@ app.use(express.urlencoded({ extended: true }))
          res.render('payment', {message: 'Payment Sucessful', account: accounts.credit });
     });
 
+ 
 ///////////////////////
 /// Server setup  ////
 //////////////////////
