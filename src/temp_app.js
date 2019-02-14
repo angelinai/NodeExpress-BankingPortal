@@ -2,7 +2,7 @@
 const express = require('express');
 
 // data rquire setup exports
-const { accounts, users, writeJson } = require('./data');
+const { accounts, writeJson } = require('./data');
 
 
 ///////////////////////
@@ -18,9 +18,9 @@ app.set('view engine', 'ejs'); // set view engine
 ///////////////////////
 ///   Middleware    ///
 //////////////////////
-
 // point at the public directory
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.urlencoded({ extended: true }))
 
 ///////////////////////
@@ -78,6 +78,4 @@ app.use(express.urlencoded({ extended: true }))
 ///////////////////////
 /// Server setup  ////
 //////////////////////
-app.listen(3000, () => {
-    console.log('FinBin Banking Portal running on port 3000!')
-});
+app.listen(3000);
