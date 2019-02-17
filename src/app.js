@@ -1,11 +1,12 @@
-// require ExpressJS
-const express = require('express');
+
 const fs = require('fs'); // allow read and write files
 const path = require('path'); // configure abs paths
  
+// require ExpressJS
+const express = require('express');
 
 // data rquire setup exports
-const { accounts, users, writeJson } = require('./data');
+const { accounts, users, writeJSON } = require('./data');
 
 
 ///////////////////////
@@ -65,7 +66,7 @@ app.use(express.urlencoded({ extended: true }))
        accounts[req.body.to].balance = parseInt(accounts[req.body.to].balance) + 
         parseInt(req.body.amount, 10);
          
-        writeJson(); 
+        writeJSON(); 
 
       res.render('transfer', {message: "Transfer Completed"});
     });
@@ -73,7 +74,7 @@ app.use(express.urlencoded({ extended: true }))
         accounts.credit.balance -= req.body.amount;
         accounts.credit.available += parseInt(req.body.amount, 10);
 
-        writeJson(); 
+        writeJSON(); 
 
          res.render('payment', {message: 'Payment Sucessful', account: accounts.credit });
     });
